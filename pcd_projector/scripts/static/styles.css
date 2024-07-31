@@ -1,0 +1,205 @@
+body, html {
+    height: 99%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+#mainContainer {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 80vh;
+    margin: 20px 0;
+}
+
+#overviewContainer {
+    position: relative;
+    width: 33.33%;
+    height: 100%;
+    padding: 2px;
+    background-color: #333; /* Updated to dark background */
+    border: 2px solid #444; /* Updated to dark border */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+#overviewCanvas {
+    border: 1px solid #444; /* Updated to dark border */
+    width: 100%;
+    height: 100%;
+}
+
+#imageContainer {
+    position: relative;
+    width: 66.67%;
+    height: 100%;
+    padding: 2px;
+    background-color: #333; /* Updated to dark background */
+    border: 2px solid #444; /* Updated to dark border */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+}
+
+#mapCanvas {
+    border: 1px solid #444; /* Updated to dark border */
+    width: 100%;
+    height: 100%;
+    cursor: none;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+#controls {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10;
+}
+
+.zoomButton, .zeroButton, .commandButton {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 14px;
+    background: #333;
+    color: #fff;
+    border: 2px solid #444;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.zoomButton:hover, .zeroButton:hover, .commandButton:hover {
+    background: #444;
+    color: #fff;
+}
+
+.control-panel {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    background: #222;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.shutdown-panel {
+    position: absolute;
+    bottom: 10px;
+    width: 260px !important;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    background: #222;
+    /* padding: 20px; */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+
+.command-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.command-group button {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+#commandDiv{
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-y: auto;
+    margin-left: 50px;
+
+}
+
+#commandOutput {
+    width: 90%;
+    background: #1a1a1a;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    color: #fff;
+    height: 126px;
+    overflow-y: auto;
+}
+
+#chartsContainer {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    height: 98% ;
+    box-sizing: border-box;
+}
+
+#leftContainer {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 300px;
+    height: 98% ;
+    box-sizing: border-box;
+}
+
+#imgCamera{
+    width: 260px !important;
+    height: 260px !important; /* Set the height of the image canvases to match charts */
+    background-color: #333;
+    border: 2px solid #444;
+    border-radius: 5px;
+}
+
+#imgMapCanvas, #imgHeatmapCanvas{
+    width: 260px !important;
+    height: 400px !important; /* Set the height of the image canvases to match charts */
+    background-color: #333;
+    border: 2px solid #444;
+    border-radius: 5px;
+}
+#chartsContainer canvas {
+    width: 260px !important;
+    height: 15%; /* Set each chart to a fixed height with higher priority */
+    background-color: #333;
+    border: 2px solid #444;
+    border-radius: 5px;
+}
+
+#processControls {
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 10px; */
+}
+
+#processList {
+    width: 55%; /* Ensure the combo box takes 70% of the available width */
+    height: 18%;
+    margin-right: 10px;
+    background: #444;
+    color: #fff;
+    border-radius: 5px;
+
+}

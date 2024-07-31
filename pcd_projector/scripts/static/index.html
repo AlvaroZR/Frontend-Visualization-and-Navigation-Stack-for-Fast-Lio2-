@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Canvas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="mainContainer">
+        <div id="leftContainer">
+            <canvas id="imgCamera"></canvas>
+            <div class="shutdown-panel">
+            <div>
+            <button class="zoomButton" onclick="reboot()">Reboot</button>
+            </div>
+            <div>
+            <button class="zoomButton" onclick="shutdown()">Shutdown</button>
+            </div>
+          </div>
+        </div>
+        <div id="overviewContainer">
+            <canvas id="overviewCanvas"></canvas>
+        </div>
+        <div id="imageContainer">
+            <canvas id="mapCanvas"></canvas>
+            <div id="controls">
+                <div id="zoomControls">
+                    <button class="zoomButton" onclick="zoomIn()">Zoom In</button>
+                    <button class="zoomButton" onclick="zoomOut()">Zoom Out</button>
+                    <button class="zoomButton" id="confirmZoomButton" onclick="confirmZoom()">Confirm Zoom</button>
+                </div>
+                <div id="panControls" style="display: none;">
+                    <button id="panToggle" class="zoomButton" onclick="togglePanning()">Pan</button>
+                    <!-- <button id="setZeroButton" class="zeroButton" style="display: none;" onclick="setZeroMode()">Set (0,0)</button> -->
+                    <button id="undoButton" class="zoomButton" style="display: none;" onclick="undoLastCircle()">Undo</button>
+                    <button id="clearButton" class="zoomButton" style="display: none;" onclick="clearCircles()">Clear</button>
+
+                </div>
+            </div>
+        </div>
+        <!-- Add the charts container -->
+        <div id="chartsContainer">
+            <canvas id="imgMapCanvas"></canvas>
+            <canvas id="imgHeatmapCanvas" ondblclick="onHeatMapDoubleClick()"></canvas>
+            <canvas id="cpuChart"></canvas>
+            <canvas id="memoryChart"></canvas>
+            <canvas id="swapChart"></canvas>
+        </div>
+    </div>
+    <!-- Terminal Command Buttons -->
+    <div id="terminalCommand" class="control-panel">
+        <div class="command-group">
+            <button class="commandButton" onclick="runTerminalCommand()">Run Fast Lio</button>
+            <button class="commandButton" onclick="stopTerminalCommand()">Save Map</button>
+            <button class="commandButton" onclick="reprocessPointCloud()">Reprocess Point Cloud</button>
+            <button class="commandButton" onclick="startHeatMapping()">Heat Mapping</button>
+        </div>
+        <div class="command-group">
+            <button class="commandButton" onclick="startVelodyneNode()">Start Velodyne Node</button>
+            <button class="commandButton" onclick="startWitmotionNode()">Start Witmotion Node</button>
+            <button class="commandButton" onclick="startCameraNode()">Start Camera Node</button>
+            <button class="commandButton" onclick="toggleLidar()">Toggle Lidar On/Off</button>
+        </div>
+        <div class="command-group">
+            <button class="commandButton" onclick="startPersonNav()">Person Follower</button>
+            <button class="commandButton" onclick="startAStarNav()">A* Nav</button>
+            <button class="commandButton" onclick="startGoalNav()">Goal Nav</button>
+            <button class="commandButton" onclick="startControllerNav()">Controller Nav</button>
+        </div>
+
+        <div id="commandDiv">
+        <pre id="commandOutput"></pre>
+        <!-- Add the process list and kill button -->
+        <!-- <div id="processControls" class="command-group"> -->
+            <select id="processList"></select>
+            <button class="commandButton" onclick="killSelectedProcess()">Kill Selected Process</button>
+        <!-- </div> -->
+      </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
